@@ -32,6 +32,7 @@ Site que cria a estrutura de um projeto utilizando o Spring Boot
 - Quais são as dependências do projeto:
   - Spring Web (clicar para selecionar)
   - Spring Boot DevTools (clicar para selecionar)
+  - Thymeleaf (clicar e selecionar)
 - Clicar em Selected N dependencies
 - Selecionar a pasta onde o projeto será criado (usar a mesma que foi utilizada no passo 1)
 - Retorno que o projeto foi criado com sucesso, clicar em OPEN
@@ -46,6 +47,17 @@ Site que cria a estrutura de um projeto utilizando o Spring Boot
 - Clicar em Proceed
 - Salvar o arquivo POM
 - "A build file was modified. Do you want to synchronize de java classpath?" Always (SEMPRE)
+
+- Opção 2
+- Acessar o site https://mvnrepository.com/
+- Procurar pela dependência desejada: ex: bootstrap / jquery
+- Listar as versões e então você seleciona a versão desejada
+- O site sugere o XML necessário para incluir a dependência, então copie o XML
+- Volta no projeto, abre o arquivo POM.xml
+- Procura a TAG <dependencies>
+- Dentro do corpo da tag, colar o XML copiado do site
+- Salvar o arquivo
+
 
 ## Estrutura do projeto
 - Pacote src: todo o código da aplicação (Java, HTML, CSS, JS)
