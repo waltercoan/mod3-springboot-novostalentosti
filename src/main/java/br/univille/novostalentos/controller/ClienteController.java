@@ -12,6 +12,6 @@ public class ClienteController {
     @GetMapping
     public ModelAndView index(){
 
-        return null;
+        return new ModelAndView("cliente/index");
     }
 }

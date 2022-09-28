@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Sexo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Zezinho</td>
+                        <td>Rua lalalal 100</td>
+                        <td>Masculino</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>
