@@ -58,6 +58,10 @@ Site que cria a estrutura de um projeto utilizando o Spring Boot
 - Dentro do corpo da tag, colar o XML copiado do site
 - Salvar o arquivo
 
+## Configuração para conexão no banco de dados relacional
+- Adicionar dependências (Spring Data JPA, H2, MariaDB JDBC Driver)
+- Configurar a conexão da aplicação com o banco de dados no arquivo application.properties
+
 
 ## Estrutura do projeto
 - Pacote src: todo o código da aplicação (Java, HTML, CSS, JS)
