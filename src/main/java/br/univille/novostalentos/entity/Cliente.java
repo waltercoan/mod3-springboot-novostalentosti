@@ -1,10 +1,14 @@
 package br.univille.novostalentos.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Cliente {
@@ -13,11 +17,20 @@ public class Cliente {
     private long id;
     @Column(length = 1000, nullable = false)
     private String nome;
+    @Column(length = 3000)
     private String endereco;
     private String sexo;
+    @Temporal(value = TemporalType.DATE)
+    private Date dataNascimento;
     
     public long getId() {
         return id;
+    }
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
     public void setId(long id) {
         this.id = id;
