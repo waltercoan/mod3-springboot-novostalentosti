@@ -18,11 +18,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Zezinho</td>
-                        <td>Rua lalalal 100</td>
-                        <td>Masculino</td>
+                    <tr th:each="umCliente : ${listaClientes}">
+                        <td th:text="${umCliente.id}"></td>
+                        <td th:text="${umCliente.nome}"></td>
+                        <td th:text="${umCliente.endereco}"></td>
+                        <td th:text="${umCliente.sexo}"></td>
                     </tr>
                 </tbody>
             </table>
