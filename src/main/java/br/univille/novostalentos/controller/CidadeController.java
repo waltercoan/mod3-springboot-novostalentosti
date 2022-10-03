@@ -18,6 +18,8 @@ public class CidadeController {
     @GetMapping
     public ModelAndView index(){
 
-        return new ModelAndView("cidade/index");
+        var listaCidades = repositorio.findAll();
+
+        return new ModelAndView("cidade/index","listaCidades",listaCidades);
     }
 }
