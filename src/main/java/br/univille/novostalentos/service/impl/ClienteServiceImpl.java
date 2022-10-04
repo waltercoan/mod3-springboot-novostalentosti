@@ -19,5 +19,9 @@ public class ClienteServiceImpl
     public List<Cliente> getAll() {
         return repositorio.findAll();
     }
-    
+    public void qqcoisanenhuma(){
+        
+    }
+
+   
 }

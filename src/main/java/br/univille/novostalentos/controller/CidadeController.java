@@ -7,18 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.novostalentos.repository.CidadeRepository;
+import br.univille.novostalentos.service.CidadeService;
 
 @Controller
 @RequestMapping("/cidades")
 public class CidadeController {
     
     @Autowired
-    private CidadeRepository repositorio;
+    private CidadeService service;
 
     @GetMapping
     public ModelAndView index(){
 
-        var listaCidades = repositorio.findAll();
+        var listaCidades = service.getAll();
 
         return new ModelAndView("cidade/index","listaCidades",listaCidades);
     }

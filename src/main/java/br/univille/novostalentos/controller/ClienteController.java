@@ -20,8 +20,6 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView index(){
-
-        
         
         var listaClientes = service.getAll();
 
