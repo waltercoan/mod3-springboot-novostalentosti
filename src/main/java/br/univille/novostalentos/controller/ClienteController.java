@@ -31,7 +31,8 @@ public class ClienteController {
     }
     @PostMapping(params = "form")
     public ModelAndView save(Cliente cliente){
-        System.out.println(cliente.getNome());
+        
+        service.save(cliente);
 
         return new ModelAndView("redirect:/clientes");
     }
