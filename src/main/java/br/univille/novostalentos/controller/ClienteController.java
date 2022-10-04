@@ -20,9 +20,12 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView index(){
-        
         var listaClientes = service.getAll();
-
         return new ModelAndView("cliente/index","listaClientes",listaClientes);
     }
+    @GetMapping("/novo")
+    public ModelAndView novo(){
+        return new ModelAndView("cliente/form");
+    }
+
 }
