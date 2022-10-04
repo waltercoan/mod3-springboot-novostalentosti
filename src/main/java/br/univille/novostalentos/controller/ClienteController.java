@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import br.univille.novostalentos.entity.Cliente;
@@ -25,7 +26,13 @@ public class ClienteController {
     }
     @GetMapping("/novo")
     public ModelAndView novo(){
-        return new ModelAndView("cliente/form");
+        var cliente = new Cliente();
+        return new ModelAndView("cliente/form","cliente",cliente);
     }
+    @PostMapping(params = "form")
+    public ModelAndView save(Cliente cliente){
+        System.out.println(cliente.getNome());
 
+        return new ModelAndView("redirect:/clientes");
+    }
 }

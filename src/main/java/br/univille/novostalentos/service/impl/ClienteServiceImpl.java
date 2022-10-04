@@ -19,9 +19,12 @@ public class ClienteServiceImpl
     public List<Cliente> getAll() {
         return repositorio.findAll();
     }
-    public void qqcoisanenhuma(){
-        
+
+    @Override
+    public Cliente save(Cliente cliente) {
+        return repositorio.save(cliente);
     }
+    
 
    
 }
