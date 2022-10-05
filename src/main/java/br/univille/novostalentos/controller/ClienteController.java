@@ -2,14 +2,16 @@ package br.univille.novostalentos.controller;
 
 import java.util.ArrayList;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import br.univille.novostalentos.entity.Cliente;
-import br.univille.novostalentos.repository.ClienteRepository;
 import br.univille.novostalentos.service.ClienteService;
 
 @Controller
@@ -36,4 +38,12 @@ public class ClienteController {
 
         return new ModelAndView("redirect:/clientes");
     }
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterar(@PathVariable("id") long id){
+        var umCliente = service.findById(id);
+
+        return new ModelAndView("cliente/form","cliente",umCliente);
+    }
+
+
 }

@@ -24,6 +24,15 @@ public class ClienteServiceImpl
     public Cliente save(Cliente cliente) {
         return repositorio.save(cliente);
     }
+
+    @Override
+    public Cliente findById(long id) {
+        var resultado = repositorio.findById(id);
+        if(resultado.isPresent()){
+            return resultado.get();
+        }
+        return new Cliente();
+    }
     
 
    

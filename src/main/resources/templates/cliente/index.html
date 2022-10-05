@@ -16,6 +16,7 @@
                         <th>Nome</th>
                         <th>Endereço</th>
                         <th>Sexo</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,9 @@
                         <td th:text="${umCliente.nome}"></td>
                         <td th:text="${umCliente.endereco}"></td>
                         <td th:text="${umCliente.sexo}"></td>
+                        <td>
+                            <a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
