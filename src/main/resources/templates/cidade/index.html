@@ -14,12 +14,17 @@
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="umaCidade : ${listaCidades}">
                         <td th:text="${umaCidade.id}"></td>
                         <td th:text="${umaCidade.nome}"></td>
+                        <td>
+                            <a th:href="@{'/cidades/alterar/' + ${umaCidade.id}}"
+                                class="btn btn-warning">Alterar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
