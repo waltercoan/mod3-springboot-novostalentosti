@@ -9,7 +9,7 @@
         <main class="container">
             
             <a href="/clientes/novo" class="btn btn-primary">Novo</a>
-            <table class="table">
+            <table class="table" id="tabclientes">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -27,7 +27,7 @@
                         <td th:text="${umCliente.sexo}"></td>
                         <td>
                             <a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>
-                            <button class="btn btn-danger" th:data-id="${umCliente.id}">Excluir</button>
+                            <button class="btn btn-danger js-delete" th:data-id="${umCliente.id}">Excluir</button>
                         </td>
                     </tr>
                 </tbody>
@@ -54,5 +54,6 @@
         </div>
 
         <footer th:include="layout :: footer"></footer>
+        <script th:src="@{/script.js}"></script>
     </body>
 </html>
