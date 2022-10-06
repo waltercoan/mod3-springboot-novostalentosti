@@ -44,6 +44,13 @@ public class ClienteController {
 
         return new ModelAndView("cliente/form","cliente",umCliente);
     }
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable("id") long id){
+
+        service.delete(id);
+
+        return new ModelAndView("redirect:/clientes");
+    }
 
 
 }

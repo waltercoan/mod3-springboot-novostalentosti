@@ -33,6 +33,11 @@ public class ClienteServiceImpl
         }
         return new Cliente();
     }
+
+    @Override
+    public void delete(long id) {
+        repositorio.deleteById(id);
+    }
     
 
    
