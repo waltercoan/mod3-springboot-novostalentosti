@@ -42,10 +42,10 @@ public class CidadeController {
     }
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
-        //o que que eu preciso fazer aqui???
-        //1
-        //2 chamar a tela de formulario passar os dados da cidade
-
+        
+        var umaCidade = service.findById(id);
+        return new ModelAndView("cidade/form",
+                                "cidade", umaCidade);
     }
 
 }
