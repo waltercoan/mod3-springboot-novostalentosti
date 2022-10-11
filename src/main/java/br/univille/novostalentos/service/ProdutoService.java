@@ -8,4 +8,6 @@ public interface ProdutoService {
     List<Produto> getAll();
 
     void save(Produto produto);
+
+    Produto findById(long id);
 }

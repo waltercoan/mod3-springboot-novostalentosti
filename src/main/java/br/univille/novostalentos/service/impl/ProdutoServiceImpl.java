@@ -24,5 +24,13 @@ public class ProdutoServiceImpl implements ProdutoService {
         repositorio.save(produto);
         
     }
+    @Override
+    public Produto findById(long id) {
+        var result = repositorio.findById(id);
+        if(result.isPresent()){
+            return result.get();
+        }
+        return new Produto();
+    }
     
 }

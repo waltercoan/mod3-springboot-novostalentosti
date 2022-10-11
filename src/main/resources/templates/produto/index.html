@@ -25,6 +25,7 @@
                         <td th:text="${umProduto.descricao}"></td>
                         <td th:text="${umProduto.valor}"></td>
                         <td>
+                            <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                         </td>
                     </tr>
                 </tbody>
