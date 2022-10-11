@@ -12,7 +12,7 @@
             url: "/produtos/delete/" + id,
             method: "GET",
             success: function(){
-                window.location.href="/clientes";
+                window.location.href="/produtos";
             }
         });
     });

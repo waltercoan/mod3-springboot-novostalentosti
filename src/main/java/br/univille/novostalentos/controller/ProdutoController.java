@@ -40,4 +40,10 @@ public class ProdutoController {
         var umProduto = service.findById(id);
         return new ModelAndView("produto/form","produto",umProduto);
     }
+
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable("id") long id){
+        service.delete(id);
+        return new ModelAndView("redirect:/produtos");
+    }
 }   
