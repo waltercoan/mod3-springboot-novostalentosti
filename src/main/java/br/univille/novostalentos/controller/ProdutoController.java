@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.novostalentos.entity.Produto;
 import br.univille.novostalentos.service.ProdutoService;
 
 @Controller
@@ -19,4 +20,9 @@ public class ProdutoController {
         var listaProdutos = service.getAll();
         return new ModelAndView("produto/index", "listaProdutos",listaProdutos);
     }
-}
+    @GetMapping("/novo")
+    public ModelAndView novo(){
+        var produtoNovo = new Produto();
+        return new ModelAndView("produto/form","produto",produtoNovo);
+    }
+}   
