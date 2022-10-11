@@ -19,5 +19,10 @@ public class ProdutoServiceImpl implements ProdutoService {
         
         return repositorio.findAll();
     }
+    @Override
+    public void save(Produto produto) {
+        repositorio.save(produto);
+        
+    }
     
 }

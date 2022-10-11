@@ -6,4 +6,6 @@ import br.univille.novostalentos.entity.Produto;
 
 public interface ProdutoService {
     List<Produto> getAll();
+
+    void save(Produto produto);
 }

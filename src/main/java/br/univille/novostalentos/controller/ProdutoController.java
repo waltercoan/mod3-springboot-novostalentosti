@@ -3,6 +3,7 @@ package br.univille.novostalentos.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,5 +25,12 @@ public class ProdutoController {
     public ModelAndView novo(){
         var produtoNovo = new Produto();
         return new ModelAndView("produto/form","produto",produtoNovo);
+    }
+    @PostMapping(params = "form")
+    public ModelAndView save(Produto produto){
+
+        service.save(produto);
+        
+        return new ModelAndView("redirect:/produtos");
     }
 }   
