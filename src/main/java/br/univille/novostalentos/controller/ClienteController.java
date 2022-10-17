@@ -2,10 +2,12 @@ package br.univille.novostalentos.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +34,12 @@ public class ClienteController {
         return new ModelAndView("cliente/form","cliente",cliente);
     }
     @PostMapping(params = "form")
-    public ModelAndView save(Cliente cliente){
-        
+    public ModelAndView save(@Valid Cliente cliente,
+                            BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            return new ModelAndView("cliente/form","cliente",cliente);
+        }
         service.save(cliente);
 
         return new ModelAndView("redirect:/clientes");
