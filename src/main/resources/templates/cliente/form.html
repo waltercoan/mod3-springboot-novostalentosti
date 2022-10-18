@@ -22,10 +22,10 @@
 
                 <div class="form-group">
                     <label>Cidade:</label>
-                    <select class="form-select">
-                        <option value="1">Joinville</option>
-                        <option value="2">Jaraguá do Sul</option>
-                        <option value="3">São Francisco</option>
+                    <select class="form-select" th:field="*{cidadeResidencia}">
+                        <option th:each="umaCidade : ${listaCidades}"
+                        th:text="${umaCidade.nome}"
+                        th:value="${umaCidade.id}"></option>
                     </select>
                 </div>
                 
