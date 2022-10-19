@@ -31,7 +31,7 @@
                             th:text="${#dates.format(umCliente.dataNascimento, 'dd/MM/yyyy')}"></td>
                         <td th:unless="${umCliente.dataNascimento}">Não informada</td>
                         
-                        <td th:text="${umCliente.cidadeResidencia.nome}"></td>
+                        <td th:text="${umCliente.cidadeResidencia?.nome}"></td>
                         
                         <td>
                             <a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>

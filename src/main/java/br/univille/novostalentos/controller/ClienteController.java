@@ -55,7 +55,11 @@ public class ClienteController {
                             BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
-            return new ModelAndView("cliente/form","cliente",cliente);
+            var listaCidades = cidadeService.getAll();
+            HashMap<String,Object> dados = new HashMap<>();
+            dados.put("cliente",cliente);
+            dados.put("listaCidades",listaCidades);
+            return new ModelAndView("cliente/form",dados);
         }
         service.save(cliente);
 
