@@ -14,6 +14,10 @@ public class Cidade {
     @Column(length = 1000,unique = true)
     private String nome;
 
+    public String toString(){
+        return getNome();
+    }
+
     public long getId() {
         return id;
     }

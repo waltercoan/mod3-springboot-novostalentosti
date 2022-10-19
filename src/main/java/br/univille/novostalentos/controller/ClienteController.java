@@ -41,6 +41,15 @@ public class ClienteController {
         dados.put("listaCidades",listaCidades);
         return new ModelAndView("cliente/form", dados);
     }
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterar(@PathVariable("id") long id){
+        var umCliente = service.findById(id);
+        var listaCidades = cidadeService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("cliente",umCliente);
+        dados.put("listaCidades",listaCidades);
+        return new ModelAndView("cliente/form",dados);
+    }
     @PostMapping(params = "form")
     public ModelAndView save(@Valid Cliente cliente,
                             BindingResult bindingResult){
@@ -52,12 +61,7 @@ public class ClienteController {
 
         return new ModelAndView("redirect:/clientes");
     }
-    @GetMapping("/alterar/{id}")
-    public ModelAndView alterar(@PathVariable("id") long id){
-        var umCliente = service.findById(id);
-
-        return new ModelAndView("cliente/form","cliente",umCliente);
-    }
+    
     @GetMapping("/delete/{id}")
     public ModelAndView delete(@PathVariable("id") long id){
 

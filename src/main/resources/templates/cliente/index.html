@@ -17,6 +17,7 @@
                         <th>Endereço</th>
                         <th>Sexo</th>
                         <th>Data Nascimento</th>
+                        <th>Cidade</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -29,6 +30,9 @@
                         <td th:if="${umCliente.dataNascimento}"
                             th:text="${#dates.format(umCliente.dataNascimento, 'dd/MM/yyyy')}"></td>
                         <td th:unless="${umCliente.dataNascimento}">Não informada</td>
+                        
+                        <td th:text="${umCliente.cidadeResidencia.nome}"></td>
+                        
                         <td>
                             <a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>
                             <button class="btn btn-danger js-delete" th:data-id="${umCliente.id}">Excluir</button>
