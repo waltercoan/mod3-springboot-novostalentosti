@@ -15,6 +15,7 @@
                         <th>Nome</th>
                         <th>Descrição</th>
                         <th>Valor</th>
+                        <th>Cidade de Origem</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -24,6 +25,7 @@
                         <td th:text="${umProduto.nome}"></td>
                         <td th:text="${umProduto.descricao}"></td>
                         <td th:text="${umProduto.valor}"></td>
+                        <td th:text="${umProduto.cidadeOrigem?.nome}"></td>
                         <td>
                             <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                             <button class="btn btn-danger js-delete" th:data-id="${umProduto.id}">Excluir</button>

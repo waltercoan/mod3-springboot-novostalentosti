@@ -49,7 +49,11 @@ public class ProdutoController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var umProduto = service.findById(id);
-        return new ModelAndView("produto/form","produto",umProduto);
+        var listaCidades = cidadeService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("listaCidades",listaCidades);
+        dados.put("produto",umProduto);
+        return new ModelAndView("produto/form", dados);
     }
 
     @GetMapping("/delete/{id}")
