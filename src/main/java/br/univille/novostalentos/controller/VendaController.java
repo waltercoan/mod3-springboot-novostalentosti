@@ -2,9 +2,13 @@ package br.univille.novostalentos.controller;
 
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,5 +45,12 @@ public class VendaController {
         dados.put("listaClientes", listaClientes);
         dados.put("listaProdutos", listaProdutos);
         return new ModelAndView("venda/form",dados);
+    }
+
+    @PostMapping(params = "form")
+    public ModelAndView save(@Valid Venda venda,
+                            BindingResult bindingResult){
+        service.save(venda);
+        return new ModelAndView("redirect:/vendas");
     }
 }
