@@ -1,13 +1,17 @@
 package br.univille.novostalentos.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,6 +27,12 @@ public class Venda {
     private Date data;
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
     private Cliente comprador;
+
+    @OneToMany
+    @JoinColumn(name = "venda_id")
+    private List<ItemVenda> colItens = 
+        new ArrayList<>();
+    
 
     public long getId() {
         return id;
@@ -41,6 +51,12 @@ public class Venda {
     }
     public void setComprador(Cliente comprador) {
         this.comprador = comprador;
+    }
+    public List<ItemVenda> getColItens() {
+        return colItens;
+    }
+    public void setColItens(List<ItemVenda> colItens) {
+        this.colItens = colItens;
     }
 
     
