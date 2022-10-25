@@ -27,6 +27,30 @@
                     </select>
                 </div>
 
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Itens de Venda Vinculados
+                        </h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="umItem : *{colItens}">
+                                    <td th:text="${umItem.produto?.nome}"></td>
+                                    <td th:text="${umItem.quantidade}"></td>
+                                    <td th:text="${umItem.valorVenda}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <button type="submit" 
                 class="btn btn-primary">Enviar</button>
             </form>
