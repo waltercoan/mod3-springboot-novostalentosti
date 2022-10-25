@@ -18,6 +18,15 @@
                         class="form-control" id="txtData">
                 </div>
 
+                <div class="form-group">
+                    <label>Cliente:</label>
+                    <select class="form-select" th:field="*{comprador}">
+                        <option th:each="umCliente : ${listaClientes}"
+                        th:text="${umCliente.nome}"
+                        th:value="${umCliente.id}"></option>
+                    </select>
+                </div>
+
                 <button type="submit" 
                 class="btn btn-primary">Enviar</button>
             </form>
