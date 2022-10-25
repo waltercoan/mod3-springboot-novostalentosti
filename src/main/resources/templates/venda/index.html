@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Data da Venda</th>
+                        <th>Comprador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="umaVenda : ${listaVendas}">
+                        <td th:text="${umaVenda.data}"></td>
+                        <td th:text="${umaVenda.comprador?.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>   
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>
