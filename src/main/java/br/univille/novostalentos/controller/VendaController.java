@@ -1,11 +1,14 @@
 package br.univille.novostalentos.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.novostalentos.entity.Venda;
 import br.univille.novostalentos.service.ClienteService;
 import br.univille.novostalentos.service.ProdutoService;
 import br.univille.novostalentos.service.VendaService;
@@ -26,5 +29,17 @@ public class VendaController {
         var listaVendas = service.getAll();
         return new ModelAndView("venda/index",
                     "listaVendas",listaVendas);
+    }
+
+    @GetMapping("/novo")
+    public ModelAndView novo(){
+        var novaVenda = new Venda();
+        var listaClientes = clienteService.getAll();
+        var listaProdutos = produtoService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("venda", novaVenda);
+        dados.put("listaClientes", listaClientes);
+        dados.put("listaProdutos", listaProdutos);
+        return new ModelAndView("venda/form",dados);
     }
 }
