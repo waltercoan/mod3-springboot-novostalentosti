@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.novostalentos.entity.ItemVenda;
 import br.univille.novostalentos.entity.Venda;
 import br.univille.novostalentos.service.ClienteService;
 import br.univille.novostalentos.service.ProdutoService;
@@ -44,6 +45,7 @@ public class VendaController {
         dados.put("venda", novaVenda);
         dados.put("listaClientes", listaClientes);
         dados.put("listaProdutos", listaProdutos);
+        dados.put("novoItem", new ItemVenda());
         return new ModelAndView("venda/form",dados);
     }
 
