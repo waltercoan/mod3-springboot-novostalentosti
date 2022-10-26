@@ -42,5 +42,9 @@ public class ItemVenda {
         this.produto = produto;
     }
 
+    public float getValorFinal(){
+        return this.getValorVenda() * this.getQuantidade();
+    }
+
     
 }

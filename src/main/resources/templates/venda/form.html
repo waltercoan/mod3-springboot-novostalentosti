@@ -38,6 +38,7 @@
                                     <th>Produto</th>
                                     <th>Quantidade</th>
                                     <th>Valor</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +52,14 @@
                                     <td th:text="${umItem.valorVenda}"></td>
                                     <input type="hidden"
                                         th:field="*{colItens[__${stat.index}__].valorVenda}">
+                                    
+                                    <td>
+                                        <button class="btn btn-danger"
+                                            type="submit"
+                                            name="removeitem"
+                                            th:value="__${stat.index}__">Remover</button>
+                                    </td>
+                                
                                 </tr>
                             </tbody>
                         </table>

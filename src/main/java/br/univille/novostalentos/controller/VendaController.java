@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.novostalentos.entity.ItemVenda;
@@ -69,5 +70,11 @@ public class VendaController {
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem", new ItemVenda());
         return new ModelAndView("venda/form",dados);
+    }
+    @PostMapping(params = "removeitem")
+    public ModelAndView removerItem(@RequestParam("removeitem") int index, 
+                                    Venda venda){
+        venda.getColItens().remove(index);
+
     }
 }

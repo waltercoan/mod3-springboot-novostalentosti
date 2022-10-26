@@ -13,12 +13,14 @@
                     <tr>
                         <th>Data da Venda</th>
                         <th>Comprador</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="umaVenda : ${listaVendas}">
                         <td th:text="${umaVenda.data}"></td>
                         <td th:text="${umaVenda.comprador?.nome}"></td>
+                        <td th:text="${#aggregates.sum(umaVenda.colItens.![getValorFinal])}"></td>
                     </tr>
                 </tbody>
             </table>   
