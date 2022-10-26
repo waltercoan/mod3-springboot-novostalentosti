@@ -44,7 +44,7 @@
                                 <tr th:each="umItem, stat : *{colItens}">
                                     <td th:text="${umItem.produto?.nome}"></td>
                                     <input type="hidden"
-                                        th:field="*{colItens[__${stat.index}__].produto?.id}">
+                                        th:field="*{colItens[__${stat.index}__].produto}">
                                     <td th:text="${umItem.quantidade}"></td>
                                     <input type="hidden"
                                         th:field="*{colItens[__${stat.index}__].quantidade}">
