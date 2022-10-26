@@ -49,10 +49,25 @@ public class VendaController {
         return new ModelAndView("venda/form",dados);
     }
 
-    @PostMapping(params = "form")
+    @PostMapping(params = "save")
     public ModelAndView save(@Valid Venda venda,
                             BindingResult bindingResult){
         service.save(venda);
         return new ModelAndView("redirect:/vendas");
+    }
+
+    @PostMapping(params = "incitem")
+    public ModelAndView incluirItem(Venda venda, 
+                ItemVenda novoItem){
+        venda.getColItens().add(novoItem);
+
+        var listaClientes = clienteService.getAll();
+        var listaProdutos = produtoService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("venda", venda);
+        dados.put("listaClientes", listaClientes);
+        dados.put("listaProdutos", listaProdutos);
+        dados.put("novoItem", new ItemVenda());
+        return new ModelAndView("venda/form",dados);
     }
 }
