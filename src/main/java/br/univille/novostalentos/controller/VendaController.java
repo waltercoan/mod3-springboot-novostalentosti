@@ -73,8 +73,16 @@ public class VendaController {
     }
     @PostMapping(params = "removeitem")
     public ModelAndView removerItem(@RequestParam("removeitem") int index, 
-                                    Venda venda){
+                                Venda venda){
         venda.getColItens().remove(index);
 
+        var listaClientes = clienteService.getAll();
+        var listaProdutos = produtoService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+        dados.put("venda", venda);
+        dados.put("listaClientes", listaClientes);
+        dados.put("listaProdutos", listaProdutos);
+        dados.put("novoItem", new ItemVenda());
+        return new ModelAndView("venda/form",dados);
     }
 }
