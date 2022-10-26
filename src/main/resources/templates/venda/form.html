@@ -62,6 +62,18 @@
                             Novo Item de Venda
                         </h5>
                         <div class="form-group">
+                            <label for="cbproduto">Produto:</label>
+                            <!--ComboBox Windows Forms-->
+                            <select class="form-select" id="cbproduto"
+                                th:field="${novoItem.produto}">
+                                <option th:each="umproduto : ${listaProdutos}"
+                                        th:value="${umproduto.id}"
+                                        th:text="${umproduto.nome}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="txtQuantidade">Quantidade:</label>
                             <input type="number" id="txtQuantidade"
                                 class="form-control"
