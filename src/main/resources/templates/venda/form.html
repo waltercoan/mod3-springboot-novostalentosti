@@ -41,10 +41,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="umItem : *{colItens}">
+                                <tr th:each="umItem, stat : *{colItens}">
                                     <td th:text="${umItem.produto?.nome}"></td>
+                                    <input type="hidden"
+                                        th:field="*{colItens[__${stat.index}__].produto?.id}">
                                     <td th:text="${umItem.quantidade}"></td>
+                                    <input type="hidden"
+                                        th:field="*{colItens[__${stat.index}__].quantidade}">
                                     <td th:text="${umItem.valorVenda}"></td>
+                                    <input type="hidden"
+                                        th:field="*{colItens[__${stat.index}__].valorVenda}">
                                 </tr>
                             </tbody>
                         </table>
