@@ -3,3 +3,40 @@ GET http://localhost:8080/api/v1/clientes
 
 ### Retorna um único objeto cliente pelo ID
 GET http://localhost:8080/api/v1/clientes/9999
+
+### Busca pelo nome do cliente
+GET http://localhost:8080/api/v1/clientes/nome/ze
+
+### Busca pelo nome do cliente
+GET http://localhost:8080/api/v1/clientes/?nome=ze
+
+### Enviar novo cliente
+POST http://localhost:8080/api/v1/clientes
+Content-Type: application/json
+
+{
+    "nome": "Tio Patinhas",
+    "endereco": "Rua lululul 700",
+    "sexo": "Masculino",
+    "dataNascimento": "2022-10-27",
+    "cidadeResidencia": {
+      "id": 2
+    }
+}
+
+### Alterar um cliente
+PUT http://localhost:8080/api/v1/clientes/3
+Content-Type: application/json
+
+{
+    "nome": "Tio Patinhas da Silva Sauro",
+    "endereco": "Rua lululul 700",
+    "sexo": "Masculino",
+    "dataNascimento": "2022-10-27",
+    "cidadeResidencia": {
+      "id": 2
+    }
+}
+
+### Remover Cliente
+DELETE http://localhost:8080/api/v1/clientes/3

@@ -8,4 +8,5 @@ public interface ClienteService {
     Cliente save(Cliente cliente);
     Cliente findById(long id);
     void delete(long id);
+    List<Cliente> findByNome(String nome);
 }

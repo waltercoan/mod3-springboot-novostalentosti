@@ -38,6 +38,11 @@ public class ClienteServiceImpl
     public void delete(long id) {
         repositorio.deleteById(id);
     }
+
+    @Override
+    public List<Cliente> findByNome(String nome) {
+        return repositorio.findByNomeIgnoreCaseContaining(nome);
+    }
     
 
    
