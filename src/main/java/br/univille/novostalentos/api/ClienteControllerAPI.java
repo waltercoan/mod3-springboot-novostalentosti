@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import br.univille.novostalentos.entity.Cliente;
 import br.univille.novostalentos.service.ClienteService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/v1/clientes")
@@ -26,6 +27,7 @@ public class ClienteControllerAPI {
     @Autowired
     private ClienteService service;
 
+    @ApiOperation(value = "Endpoint que retorna todos os dados dos clientes")
     @GetMapping
     public ResponseEntity<List<Cliente>> getAll(){
         var listaClientes = service.getAll();
