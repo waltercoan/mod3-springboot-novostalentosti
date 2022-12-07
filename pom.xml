@@ -106,7 +106,7 @@
           <subscriptionId></subscriptionId>
           <resourceGroup>novostalentos-1669751169243-rg</resourceGroup>
           <appName>novostalentos-brasil</appName>
-          <pricingTier>P1v2</pricingTier>
+          <pricingTier>F1</pricingTier>
           <region>brazilsouth</region>
           <runtime>
             <os>Linux</os>

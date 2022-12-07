@@ -74,3 +74,7 @@ Site que cria a estrutura de um projeto utilizando o Spring Boot
 ## Executar a aplicação
 - Encontrar o Spring Boot Dashboard
 - Clicar no icone de Play do lado do nome do projeto
+
+## Publicação da aplicação no Azure
+
+https://learn.microsoft.com/pt-br/azure/app-service/quickstart-java?tabs=javase&pivots=platform-linux-development-environment-maven
